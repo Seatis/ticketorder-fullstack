@@ -1,10 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { OrderscreenComponent } from './orderscreen/orderscreen.component';
 import { AppRoutingModule } from './app-routing.module';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+import {ToastModule} from 'primeng/toast';
+import {MessageService} from 'primeng/api';
+import {DataService} from './data.service';
 
 
 @NgModule({
@@ -14,9 +19,15 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastModule
   ],
-  providers: [],
+  providers: [MessageService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

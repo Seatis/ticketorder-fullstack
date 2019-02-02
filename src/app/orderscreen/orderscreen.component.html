@@ -1,71 +1,115 @@
+<p-toast position="top-right"></p-toast>
 <div class="limiter">
   <div class="container-login100">
-    <div class="login100-more" style="background-image: url('assets/images/bg.jpg');"></div>
+    <div class="login100-more">
+      <div class="text-area">
+        <h1 class="title p-b-59">Jegyrendelési igény leadása</h1>
+        <p class="title-sm p-b-10">Szeretettel k&ouml;sz&ouml;ntj&uuml;k jegyrendel&eacute;si oldalunkon!</p>
+        <p>Amennyiben jegyet szeretne rendelni előad&aacute;sunkra, legyen sz&iacute;ves kit&ouml;lteni az oldalon tal&aacute;lhat&oacute; űrlapot.</p>
+        <p>A megrendelt jegyek ellen&eacute;rt&eacute;ke kiegyenl&iacute;thető:</p>
+        <ul>
+          <li>fizet&eacute;s &aacute;tutal&aacute;ssal az egyes&uuml;let banksz&aacute;ml&aacute;j&aacute;ra</li>
+          <li>vagy k&eacute;szp&eacute;nzben a jegy &aacute;tv&eacute;telekor.</li>
+        </ul>
+        <p>Banksz&aacute;mlasz&aacute;munk: K&amp;H Bank: 10402922-50526753-80541007</p>
+        <p>A lefoglalt jegyeket legk&eacute;sőbb febru&aacute;r 28-&aacute;ig legyen sz&iacute;ves kifizetni, ellenkező esetben a foglal&aacute;st t&ouml;r&ouml;lj&uuml;k. Meg&eacute;rt&eacute;s&uuml;ket k&ouml;sz&ouml;nj&uuml;k.</p>
+        <p>Az előad&aacute;s c&iacute;me:&nbsp;Biztons&aacute;g vagy &eacute;lm&eacute;nyek: szempontok a p&aacute;rv&aacute;laszt&aacute;sn&aacute;l</p>
+        <p>Szervezők: Gy&ouml;mrő&eacute;rt &eacute;s Ifj&uacute;s&aacute;g&eacute;rt K&ouml;r, telefonsz&aacute;m:&nbsp;+36-30-606-<wbr />3078</p>
+        <p>&nbsp;</p>
+        <p>Tov&aacute;bbi infrom&aacute;ci&oacute;:</p>
+        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fbeatrixorsolya.buki%2Fposts%2F2237701126297308&width=400"  height="517" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+        <div class="closing-area">
+          <p>K&ouml;sz&ouml;nj&uuml;k, hogy idel&aacute;togatott! Szeretettel v&aacute;rjuk rendezv&eacute;ny&uuml;nkre!</p>
+          <p>&Uuml;dv&ouml;zlettel,</p>
+          <p>Gy&ouml;mrő&eacute;rt &eacute;s Ifj&uacute;s&aacute;g&eacute;rt K&ouml;r</p>
+          <p>&nbsp;</p>
+        </div>
+      </div>
+    </div>
 
     <div class="wrap-login100 p-l-50 p-r-50 p-t-50 p-b-50">
-      <form class="login100-form validate-form">
+      <form class="login100-form validate-form" [formGroup]="ticketForm">
         <span class="login100-form-title p-b-59">
-          Sign Up
+          Jegyrendelés
         </span>
 
         <div class="wrap-input100 validate-input" data-validate="Name is required">
-          <span class="label-input100">Vezetéknév</span>
-          <input class="input100" type="text" name="name" placeholder="Name...">
+          <label class="label-input100 required">Vezetéknév</label>
+          <input
+            class="input100"
+            type="text"
+            name="vezeteknev"
+            placeholder="Vezetéknév..."
+            formControlName="vezeteknev"
+            [required]="true"
+          >
           <span class="focus-input100"></span>
         </div>
 
         <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-          <span class="label-input100">Email</span>
-          <input class="input100" type="text" name="email" placeholder="Email addess...">
+          <label class="label-input100 required">Keresztnév</label>
+          <input
+            class="input100"
+            type="text" name="keresztnev"
+            placeholder="Keresztnév..."
+            formControlName="keresztnev"
+            [required]="true"
+          >
           <span class="focus-input100"></span>
         </div>
 
         <div class="wrap-input100 validate-input" data-validate="Username is required">
-          <span class="label-input100">Username</span>
-          <input class="input100" type="text" name="username" placeholder="Username...">
+          <label class="label-input100 required">Email-cím</label>
+          <input
+            class="input100"
+            type="email"
+            name="email"
+            [email]="true"
+            placeholder="Email-cím..."
+            formControlName="email"
+            [required]="true"
+            [ngClass]="ticketForm.controls.email.invalid && ticketForm.controls.email.value ? 'invalid' : ''"
+          >
           <span class="focus-input100"></span>
         </div>
 
         <div class="wrap-input100 validate-input" data-validate = "Password is required">
-          <span class="label-input100">Password</span>
-          <input class="input100" type="password" name="pass" placeholder="*************">
+          <label class="label-input100 required">Telefonszám</label>
+          <input
+            class="input100"
+            type="text"
+            name="telefonszam"
+            placeholder="Telefonszám..."
+            formControlName="telefonszam"
+            [required]="true"
+            maxlength="12"
+            [ngClass]="ticketForm.controls.telefonszam.invalid && ticketForm.controls.telefonszam.value ? 'invalid' : ''"
+          >
           <span class="focus-input100"></span>
         </div>
 
         <div class="wrap-input100 validate-input" data-validate = "Repeat Password is required">
-          <span class="label-input100">Repeat Password</span>
-          <input class="input100" type="password" name="repeat-pass" placeholder="*************">
+          <label class="label-input100 required">Jegyek száma</label>
+          <input
+            class="input100"
+            type="number"
+            name="jegy"
+            placeholder="Jegyek száma..."
+            formControlName="jegy"
+            [required]="true"
+            [ngClass]="ticketForm.controls.jegy.invalid && ticketForm.controls.jegy.value ? 'invalid' : ''"
+          >
           <span class="focus-input100"></span>
-        </div>
-
-        <div class="flex-m w-full p-b-33">
-          <div class="contact100-form-checkbox">
-            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-            <label class="label-checkbox100" for="ckb1">
-              <span class="txt1">
-                I agree to the
-                <a href="#" class="txt2 hov1">
-                  Terms of User
-                </a>
-              </span>
-            </label>
-          </div>
-
-          
         </div>
 
         <div class="container-login100-form-btn">
           <div class="wrap-login100-form-btn">
             <div class="login100-form-bgbtn"></div>
-            <button class="login100-form-btn">
-              Sign Up
+            <button class="login100-form-btn" (click)="postForm()">
+              Megrendelés
             </button>
           </div>
 
-          <a href="#" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">
-            Sign in
-            <i class="fa fa-long-arrow-right m-l-5"></i>
-          </a>
         </div>
       </form>
     </div>

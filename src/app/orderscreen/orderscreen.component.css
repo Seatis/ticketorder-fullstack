@@ -18,22 +18,66 @@ a:hover {
 	text-decoration: none;
 }
 
+div.text-area {
+  font-family: Poppins-Regular;
+  padding: 20px;
+  color: #e4ffc5;
+
+}
+
+.title {
+  display: block;
+  width: 100%;
+  font-family: Poppins-SemiBold;
+  font-size: 39px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.title-sm {
+  display: block;
+  width: 100%;
+  font-family: Poppins-Regular;
+  font-size: 27px;
+  line-height: 1.2;
+  text-align: left;
+}
+
+@media only screen and (max-width: 600px) {
+  div.text-area {
+    /* On small screens, we are no longer using row direction but column */
+    padding: 10px;
+  }
+}
+
 /*---------------------------------------------*/
 h1,h2,h3,h4,h5,h6 {
 	margin: 0px;
 }
 
+iframe {
+  width: 500px;
+  float: left;
+}
+
+.closing-area {
+  padding-top: 330px;
+}
+
 p {
 	font-family: Poppins-Regular;
-	font-size: 14px;
+	font-size: 18px;
 	line-height: 1.7;
-	color: #666666;
 	margin: 0px;
 }
 
 ul, li {
-	margin: 0px;
-	list-style-type: none;
+
+}
+
+ul {
+  padding-left: 50px;
+  /*line-height: 1.2;*/
 }
 
 
@@ -42,6 +86,19 @@ input {
 	outline: none;
 	border: none;
 }
+
+.invalid {
+  /*background-color: #d49498;*/
+  border: 1.5px solid red;
+}
+
+label.required:after{
+  content: " *";
+  color: red;
+  font-size: 20px;
+  font-weight: bold;
+}
+
 
 input[type="number"] {
     -moz-appearance: textfield;
@@ -136,7 +193,7 @@ iframe {
 }
 
 .container-login100 {
-  width: 100%;  
+  width: 100%;
   /* display: grid;
   grid-template-columns: 9fr 1fr; */
 
@@ -174,6 +231,7 @@ iframe {
 /*------------------------------------------------------------------
 [ Login100 more ]*/
 .login100-more {
+  background-image: url('assets/images/bg.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

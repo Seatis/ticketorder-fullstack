@@ -3,9 +3,10 @@ import {RouterModule, Routes} from '@angular/router';
 import { OrderscreenComponent } from './orderscreen/orderscreen.component';
 
 const APP_ROUTING : Routes = [
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home', component: OrderscreenComponent},
-  {path: '**', redirectTo: 'ui', pathMatch: 'full'}
+  // {path: '', redirectTo: 'home', pathMatch: 'full'},
+  // {path: 'home', component: OrderscreenComponent},
+  {path: '', component: OrderscreenComponent},
+  {path: '**', redirectTo: '', pathMatch: 'full'}
 ]
 
 @NgModule({
