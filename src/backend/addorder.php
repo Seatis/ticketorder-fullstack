@@ -15,7 +15,7 @@ foreach($obj as $key=>$value) {
   $$key=$value;
 }
 
-$sql = "INSERT INTO orders (vezeteknev, keresztnev, email, telefonszam, jegy, datum) VALUES ('$vezeteknev', '$keresztnev', '$email', '$telefonszam', '$jegy', '2018. 06. 07.')";
+$sql = "INSERT INTO orders (vezeteknev, keresztnev, email, telefonszam, jegy, datum) VALUES ('$vezeteknev', '$keresztnev', '$email', '$telefonszam', '$jegy', '$datum')";
 
 
 // $result = mysqli_query($conn,$sql);

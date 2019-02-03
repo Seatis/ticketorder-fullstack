@@ -9,13 +9,23 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {ToastModule} from 'primeng/toast';
 import {MessageService} from 'primeng/api';
-import {DataService} from './data.service';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+import {TableModule} from 'primeng/table';
+import {ButtonModule} from 'primeng/button';
 
+import {DataService} from './data.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AdminComponent } from './admin/admin.component';
+import {AuthGuardService} from './auth-guard.service';
+import {AuthService} from './auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    OrderscreenComponent
+    OrderscreenComponent,
+    DashboardComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -25,9 +35,13 @@ import {DataService} from './data.service';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastModule
+    ToastModule,
+    MessagesModule,
+    MessageModule,
+    TableModule,
+    ButtonModule
   ],
-  providers: [MessageService, DataService],
+  providers: [MessageService, DataService, AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

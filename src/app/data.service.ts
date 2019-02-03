@@ -14,7 +14,7 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  public getNamesPhp() {
+  public getOrders() {
     const httpOptions = {
       headers: new HttpHeaders({
         'Accept':  'application/json',
@@ -33,6 +33,18 @@ export class DataService {
       })
     };
     return this.http.post<PostResponse>(this.serverUrl + 'addorder.php', body, httpOptions).pipe( catchError(this.handleError));
+  }
+
+  public deleteOrder(id: string): Observable<string> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      }),
+      params: {
+        id: id
+      }
+    };
+    return this.http.delete<string>(this.serverUrl + 'deleteorder.php', httpOptions).pipe( catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse) {

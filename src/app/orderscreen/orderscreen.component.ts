@@ -14,6 +14,7 @@ import {PostResponse} from '../model/postres.model';
 export class OrderscreenComponent implements OnInit {
 
   public ticketForm: FormGroup;
+  public msgs: any[] = [];
   private ticketOrder: TicketOrderModel;
 
   constructor(private formBuilder: FormBuilder, private messageService: MessageService, private dataService: DataService) { }
@@ -29,18 +30,18 @@ export class OrderscreenComponent implements OnInit {
   }
 
   public postForm(): void {
-    // console.log(this.ticketForm);
     if (this.checkValidForm()) {
       this.ticketOrder = <TicketOrderModel>this.ticketForm.value;
+      this.ticketOrder.datum = new Date().toLocaleString();
       const body: string = JSON.stringify(this.ticketOrder);
       this.dataService.postOrder(body).subscribe( (response: PostResponse) => {
-        if (response.error) {
-          console.log(response.error);
+        if (!response.error) {
+          this.messageService.add({severity: 'success', summary: 'Sikeres jegyrendelés!', detail: 'Kérem, ellenőrizze email fiókját!'});
+          this.ticketForm.reset();
         } else {
-          console.log(response);
+          this.messageService.add({severity: 'error', summary: 'Sikertelen!', detail: 'A jegyrendelés háttérrendszeri hiba miatt nem valósult meg, kérem próbálja újra később!'});
         }
       });
-      console.log(this.ticketOrder);
     }
   }
 

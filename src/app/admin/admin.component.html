@@ -1,0 +1,6 @@
+<div class="login">
+  <h1 class="login-title">Belépés Adminra</h1>
+  <input type="password" class="login-input" placeholder="Password" [(ngModel)]="typedPassword">
+  <div class="wrongpass" *ngIf="auth.invalidPassword">{{wrongPasswordText}}</div>
+  <input type="button" value="Belépés" class="login-button" (click)="navigateToDashboard()">
+</div>

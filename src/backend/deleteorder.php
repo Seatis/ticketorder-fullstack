@@ -6,14 +6,14 @@ foreach($_GET as $key => $value) {
 }
 
 if (isset($id)) {
-  $sql = "SELECT name FROM names WHERE id='$id'";
+  $sql = "SELECT email FROM orders WHERE id='$id'";
   $result = $conn->query($sql);
   while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
     $rows[] = $row;
   }
   $response = new \stdClass();
   if (isset($rows)) {
-    $sql = "DELETE FROM names WHERE id='$id'";
+    $sql = "DELETE FROM orders WHERE id='$id'";
 
     $result = $conn->query($sql);
 
@@ -21,9 +21,9 @@ if (isset($id)) {
       $response->status = 'error';
       $response->error = $conn->error;
     } else {
-      $response->status = 'Delete OK!';  
+      $response->status = 'Delete OK!';
       $response->deleted_id = $id;
-      $response->deleted_name = $rows[0]['name'];
+      $response->deleted_person = $rows[0]['email'];
     }
   } else {
     $response->status = 'error';

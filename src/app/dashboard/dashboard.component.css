@@ -1,0 +1,21 @@
+div.db-container {
+  padding: 30px;
+  font-family: Poppins-Regular, sans-serif;
+}
+
+div.db-container div.db-title {
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.button-area {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 6fr;
+  margin-top: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .button-area  {
+    grid-template-columns: 1fr;
+  }
+}
